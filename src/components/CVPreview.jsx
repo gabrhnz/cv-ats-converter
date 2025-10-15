@@ -43,10 +43,10 @@ function CVPreview({ data, onReset }) {
             max-width: 850px;
             margin: 0 auto;
             background: white;
-            padding: 35px 45px;
+            padding: 40px 50px;
         }
         .header {
-            margin-bottom: 16px;
+            margin-bottom: 20px;
         }
         .header h1 {
             font-size: 28px;
@@ -72,14 +72,14 @@ function CVPreview({ data, onReset }) {
         .contact {
             font-size: 10px;
             color: #000;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
         }
         .section {
-            margin-bottom: 14px;
+            margin-bottom: 18px;
         }
         .section-header {
             display: flex;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
         .section-title {
             width: 150px;
@@ -97,12 +97,12 @@ function CVPreview({ data, onReset }) {
         }
         .summary-text {
             font-size: 10px;
-            line-height: 1.5;
+            line-height: 1.6;
             color: #000;
             text-align: justify;
         }
         .job {
-            margin-bottom: 12px;
+            margin-bottom: 16px;
         }
         .job-title {
             font-size: 10px;
@@ -125,9 +125,9 @@ function CVPreview({ data, onReset }) {
         }
         .job ul li {
             font-size: 9px;
-            line-height: 1.4;
+            line-height: 1.5;
             color: #000;
-            margin-bottom: 3px;
+            margin-bottom: 4px;
             padding-left: 12px;
             position: relative;
         }
@@ -138,7 +138,7 @@ function CVPreview({ data, onReset }) {
             font-weight: bold;
         }
         .education-item {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
         .education-title {
             font-size: 9.5px;
@@ -159,7 +159,7 @@ function CVPreview({ data, onReset }) {
         .section-divider {
             height: 1px;
             background: #000;
-            margin: 10px 0;
+            margin: 12px 0;
         }
     </style>
 </head>

@@ -61,18 +61,19 @@ FORMATO DE SALIDA REQUERIDO (JSON):
 }
 
 INSTRUCCIONES CRÍTICAS:
-- SIEMPRE extrae TODOS los datos de contacto: teléfono, email, ubicación, LinkedIn
-- Si no encuentras algún dato de contacto, busca más cuidadosamente en el CV
+- SIEMPRE extrae TODOS los datos de contacto disponibles: teléfono, email, ubicación, LinkedIn
+- Si NO encuentras un dato (ej: teléfono), deja el campo VACÍO ("") - NO pongas "No disponible"
 - Mantén el idioma original del CV (español o inglés)
 - Convierte logros en formato orientado a resultados con métricas cuando sea posible
 - Sé preciso con fechas y nombres
-- El resumen debe ser de 4-5 líneas para llenar bien el espacio
-- Cada experiencia debe tener 3-4 logros detallados (no solo 2)
-- Los logros deben ser descriptivos y específicos, no solo una línea corta
-- Expande los logros con contexto, tecnologías usadas, y resultados cuando estén disponibles
-- Las competencias deben incluir todas las relevantes encontradas (12-15 competencias)
-- Si el CV tiene poca información, expande los logros con más detalles técnicos
-- Objetivo: llenar al menos 60-70% de una página Letter con contenido relevante
+- El resumen debe ser de 5-6 líneas bien desarrolladas para llenar el espacio
+- Cada experiencia debe tener 4-5 logros detallados y específicos
+- Los logros deben ser descriptivos con contexto completo (2-3 líneas cada uno)
+- Expande los logros con: contexto, tecnologías usadas, metodologías, y resultados cuantificables
+- Las competencias deben incluir TODAS las relevantes encontradas (15-20 competencias)
+- Si el CV tiene poca información, expande los logros con más detalles técnicos y contexto
+- Agrega detalles sobre herramientas, software, metodologías mencionadas
+- Objetivo: llenar 75-85% de una página Letter con contenido relevante y bien espaciado
 
 CV A ANALIZAR:
 ${sanitizedCVText}
