@@ -7,8 +7,17 @@ export async function convertToATS(cvText) {
   const apiKey = process.env.OPENROUTER_API_KEY;
   const model = process.env.OPENROUTER_MODEL || 'anthropic/claude-3.5-sonnet';
 
+  console.log('=== DEBUG convertToATS ===');
+  console.log('API Key presente:', apiKey ? 'SÍ (longitud: ' + apiKey.length + ')' : 'NO');
+  console.log('Modelo:', model);
+  console.log('Longitud del CV:', cvText.length);
+
   if (!apiKey) {
-    throw new Error('OPENROUTER_API_KEY no está configurada');
+    throw new Error('OPENROUTER_API_KEY no está configurada en las variables de entorno');
+  }
+  
+  if (apiKey.length < 20) {
+    throw new Error('OPENROUTER_API_KEY parece inválida (muy corta)');
   }
 
   // Limitar longitud del texto del CV para evitar ataques de inyección
