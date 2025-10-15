@@ -95,25 +95,55 @@ Responde ÚNICAMENTE con el JSON, sin texto adicional.`;
     );
 
     const content = response.data.choices[0].message.content;
+    console.log('Respuesta de IA (primeros 500 chars):', content.substring(0, 500));
     
     // Extraer JSON del contenido (por si viene con markdown)
     let jsonStr = content.trim();
+    
+    // Remover bloques de código markdown
     if (jsonStr.startsWith('```json')) {
-      jsonStr = jsonStr.replace(/```json\n?/g, '').replace(/```\n?/g, '');
+      jsonStr = jsonStr.replace(/```json\n?/g, '').replace(/```\n?$/g, '');
     } else if (jsonStr.startsWith('```')) {
-      jsonStr = jsonStr.replace(/```\n?/g, '');
+      jsonStr = jsonStr.replace(/```\n?/g, '').replace(/```\n?$/g, '');
+    }
+    
+    // Buscar JSON en el contenido si no está al inicio
+    const jsonMatch = jsonStr.match(/\{[\s\S]*\}/);
+    if (jsonMatch) {
+      jsonStr = jsonMatch[0];
     }
 
-    const atsData = JSON.parse(jsonStr);
+    let atsData;
+    try {
+      atsData = JSON.parse(jsonStr);
+    } catch (parseError) {
+      console.error('Error parseando JSON:', parseError.message);
+      console.error('JSON string:', jsonStr.substring(0, 500));
+      throw new Error('La IA no devolvió un JSON válido. Por favor intenta de nuevo.');
+    }
     
     // Validar estructura básica
     if (!atsData.nombre || !atsData.contacto) {
+      console.error('Estructura inválida:', JSON.stringify(atsData, null, 2).substring(0, 500));
       throw new Error('La respuesta de la IA no tiene la estructura esperada');
     }
 
     return atsData;
   } catch (error) {
-    console.error('Error llamando a OpenRouter:', error.response?.data || error.message);
+    console.error('Error completo:', error);
+    if (error.response?.data) {
+      console.error('Respuesta de API:', JSON.stringify(error.response.data, null, 2));
+    }
+    
+    // Mensajes de error más específicos
+    if (error.response?.status === 401) {
+      throw new Error('API Key inválida. Verifica la configuración en Vercel.');
+    } else if (error.response?.status === 429) {
+      throw new Error('Límite de rate excedido. Intenta de nuevo en unos momentos.');
+    } else if (error.message.includes('JSON')) {
+      throw new Error('Error procesando la respuesta de la IA. Intenta de nuevo.');
+    }
+    
     throw new Error(`Error procesando con IA: ${error.message}`);
   }
 }
