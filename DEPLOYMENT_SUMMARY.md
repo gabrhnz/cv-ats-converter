@@ -53,7 +53,7 @@ vercel
 En Vercel Dashboard → Settings → Environment Variables:
 
 ```
-OPENROUTER_API_KEY=***REMOVED***
+OPENROUTER_API_KEY=tu-nueva-api-key-aqui
 OPENROUTER_MODEL=anthropic/claude-3.5-sonnet
 NODE_ENV=production
 ```
