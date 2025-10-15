@@ -1,0 +1,151 @@
+.file-upload-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.drop-zone {
+  background: white;
+  border: 3px dashed #cbd5e0;
+  border-radius: 16px;
+  padding: 4rem 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.drop-zone:hover {
+  border-color: #667eea;
+  background: #f7fafc;
+}
+
+.drop-zone.drag-active {
+  border-color: #667eea;
+  background: #edf2f7;
+  transform: scale(1.02);
+}
+
+.file-input {
+  display: none;
+}
+
+.drop-zone-content {
+  pointer-events: none;
+}
+
+.upload-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.drop-zone h3 {
+  font-size: 1.5rem;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+}
+
+.drop-zone p {
+  color: #718096;
+  margin: 0.5rem 0;
+}
+
+.btn-browse {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 1rem 0;
+  pointer-events: all;
+  transition: all 0.3s ease;
+}
+
+.btn-browse:hover {
+  background: #5568d3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.file-info {
+  font-size: 0.875rem;
+  color: #a0aec0;
+  margin-top: 1rem;
+}
+
+.file-selected {
+  margin-top: 2rem;
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.file-info-box {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.file-icon {
+  width: 50px;
+  height: 50px;
+  background: #48bb78;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.file-details {
+  flex: 1;
+  text-align: left;
+}
+
+.file-name {
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 0.25rem;
+}
+
+.file-size {
+  font-size: 0.875rem;
+  color: #718096;
+}
+
+.btn-upload {
+  width: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-upload:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+@media (max-width: 768px) {
+  .drop-zone {
+    padding: 3rem 1rem;
+  }
+
+  .upload-icon {
+    font-size: 3rem;
+  }
+
+  .drop-zone h3 {
+    font-size: 1.25rem;
+  }
+}
